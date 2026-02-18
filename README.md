@@ -7,8 +7,6 @@
 
 Finance management, planning, and insights.
 
-React app built with Bun, Vite, and React.
-
 ## Development
 
 ```bash
