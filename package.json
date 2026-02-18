@@ -1,0 +1,39 @@
+{
+  "name": "advisor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.0.0",
+  "engines": {
+    "bun": ">=1.0.0",
+    "node": "DO NOT USE - Use Bun instead",
+    "npm": "DO NOT USE - Use Bun instead"
+  },
+  "scripts": {
+    "preinstall": "bun --version || (echo 'Error: This project requires Bun. Install from https://bun.sh' && exit 1)",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"No tests specified yet\"",
+    "commit": "cz",
+    "prepare": "husky"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "vite": "^6.0.3"
+  }
+}
