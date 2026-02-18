@@ -25,3 +25,17 @@ bun run build
 ```bash
 bun run preview
 ```
+
+## Testing
+
+```bash
+bun run test
+```
+
+## Commits
+
+This project uses [Commitizen](https://commitizen-tools.github.io/commitizen/) for standardized commit messages:
+
+```bash
+bun run commit
+```
