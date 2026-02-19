@@ -17,7 +17,7 @@ bun run commit       # Commitizen interactive commit (use this instead of git co
 
 ## Commits
 
-All commits must follow Conventional Commits format with a required scope:
+All commits should be in English and must follow Conventional Commits format with a required scope:
 
 ```
 <type>(<scope>): <subject>
