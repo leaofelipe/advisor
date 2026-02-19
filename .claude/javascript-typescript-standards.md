@@ -2,83 +2,11 @@
 
 Apply these rules to all `.js`, `.ts`, `.jsx`, `.tsx`, `.mjs`, `.cjs` files.
 
-## Arrays & Iteration
+# Naming Conventions
 
-- Use map/filter/reduce over forEach with side effects
-- Use appropriate data structures (Map, Set) for lookups
-
-## Async Operations
-
-- Use async/await over .then()
-- Use Promise.all() for parallel operations
-
-```javascript
-// ❌ BAD
-async function fetchUsers() {
-  const user1 = await fetchUser(1);
-  const user2 = await fetchUser(2);
-  return [user1, user2];
-}
-
-// ✅ GOOD
-async function fetchUsers() {
-  const [user1, user2] = await Promise.all([fetchUser(1), fetchUser(2)]);
-  return [user1, user2];
-}
-```
-
-## DOM & Browser Performance
-
-- Use DocumentFragment for multiple DOM insertions
-- Batch DOM operations (group reads, then writes to avoid layout thrashing)
-- Cache DOM references
-- Use event delegation instead of multiple listeners
-- Debounce/throttle scroll/resize handlers
-- Use passive listeners for touch/scroll events
-- Use requestAnimationFrame for animations
-- Use transform/opacity over layout-triggering properties
-
-## Performance
-
-- Offload heavy computations to Web Workers
-- Avoid complex regex patterns (catastrophic backtracking)
-- Profile before optimizing
-
-## Memory Management
-
-Always clean up resources:
-
-- Clear timers, event listeners, and observers
-- Close connections (websockets, streams, workers)
-- Clean media elements and Blob URLs
-- Implement cache limits/TTL
-- Avoid large closures and dangling references
-
-```javascript
-// ✅ GOOD - cleanup pattern
-class DataService {
-  constructor() {
-    this.ws = new WebSocket('wss://api.example.com');
-    this.timerId = null;
-  }
-
-  destroy() {
-    if (this.ws) {
-      this.ws.close();
-      this.ws = null;
-    }
-    if (this.timerId) {
-      clearInterval(this.timerId);
-      this.timerId = null;
-    }
-  }
-}
-```
-
-## Dependencies
-
-- Justify new libraries (necessity? alternatives? bundle impact? vulnerabilities? maintained?)
-- Consider transitive dependencies and tree-shaking compatibility
+- Booleans: `isActive`, `hasPermission`, `canEdit`
+- Functions: verbs (`getUserData`, `calculateTotal`, `validateInput`)
+- Classes/types: nouns (`UserService`, `PaymentProcessor`, `Config`)
 
 ---
 
@@ -130,16 +58,37 @@ const config = {
 
 ---
 
+# Memory Management
+
+Always clean up side effects in React components:
+
+```typescript
+// ✅ GOOD - cleanup in useEffect
+useEffect(() => {
+  const controller = new AbortController();
+  const timerId = setInterval(() => syncData(), 30_000);
+
+  fetchData({ signal: controller.signal });
+
+  return () => {
+    controller.abort();
+    clearInterval(timerId);
+  };
+}, []);
+```
+
+---
+
 # Security
 
 ## Code Injection
 
-- Never use eval() or Function() constructor
-- Validate URLs before redirects or window.open()
+- Never use `eval()` or `Function()` constructor
+- Validate URLs before redirects or `window.open()`
 
 ## XSS (Cross-Site Scripting)
 
-- Avoid innerHTML with user input; use textContent or DOM APIs
+- Avoid `innerHTML` with user input; use `textContent` or DOM APIs
 - Sanitize and encode user-generated content for the correct context (HTML, JavaScript, URL)
 
 ```javascript
@@ -152,7 +101,7 @@ element.textContent = userInput;
 
 ## Authentication & Tokens
 
-- Never store tokens in localStorage (use httpOnly cookies or memory)
+- Never store tokens in `localStorage` (use `httpOnly` cookies or memory)
 - No hardcoded credentials or API keys in code
 
 ## Data Exposure
@@ -162,47 +111,10 @@ element.textContent = userInput;
 
 ## Prototype Pollution
 
-- Validate keys when merging objects from untrusted sources (avoid `__proto__`, constructor, prototype)
-- Use Object.create(null) or schema validation (Zod, Joi) for external configs
-
-```javascript
-// ❌ BAD
-function merge(target, source) {
-  for (let key in source) {
-    target[key] = source[key];
-  }
-}
-
-// ✅ GOOD
-function merge(target, source) {
-  const dangerousKeys = ['__proto__', 'constructor', 'prototype'];
-  for (let key in source) {
-    if (!dangerousKeys.includes(key) && source.hasOwnProperty(key)) {
-      target[key] = source[key];
-    }
-  }
-}
-```
+- Validate keys when merging objects from untrusted sources (avoid `__proto__`, `constructor`, `prototype`)
+- Use `Object.create(null)` or schema validation (Zod, Joi) for external configs
 
 ## PostMessage Security
 
-- Always validate event.origin and message structure before processing
-- Use specific targetOrigin (never "*") when sending messages
-
-```javascript
-// ✅ GOOD
-window.addEventListener('message', (event) => {
-  if (event.origin !== 'https://trusted-domain.com') {
-    return;
-  }
-
-  if (typeof event.data === 'object' && event.data.type === 'EXPECTED_TYPE') {
-    processMessage(event.data);
-  }
-});
-```
-
-## External Resources
-
-- Use rel="noopener noreferrer" for target="_blank" links
-- Validate and sanitize third-party content
+- Always validate `event.origin` and message structure before processing
+- Use specific `targetOrigin` (never `"*"`) when sending messages
