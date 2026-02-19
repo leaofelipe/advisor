@@ -9,7 +9,7 @@ This project uses **Bun** exclusively. Never use `npm`, `npx`, or `yarn`. Always
 ```bash
 bun install          # Install dependencies
 bun run dev          # Start dev server
-bun run build        # Type-check (tsc --noEmit) then Vite production build
+bun run build        # Vite production build
 bun run preview      # Preview production build
 bun run test         # Run tests
 bun run format       # Format src/ with Prettier
@@ -30,8 +30,8 @@ Use `bun run commit` to get an interactive prompt. The `commit-msg` hook will re
 
 ## Architecture
 
-React 19 SPA built with Vite 6. Entry point is `src/main.tsx` → `src/App.tsx`. Finance management and planning application (v0.1.0, early stage).
+React 19 SPA built with Vite 6. Entry point is `src/main.jsx` → `src/App.jsx`. Finance management and planning application (v0.1.0, early stage).
 
 **Path alias:** `@` resolves to `./src` — use `@/components/...`, `@/lib/...`, etc. in all imports.
 
-**Pre-commit hooks:** Husky runs lint-staged on commit, which applies Prettier to all staged `*.{ts,tsx,js,jsx,json,css,md}` files automatically.
+**Pre-commit hooks:** Husky runs lint-staged on commit, which applies Prettier to all staged `*.{js,jsx,json,css,md}` files automatically.

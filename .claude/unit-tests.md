@@ -1,6 +1,6 @@
 # Unit Tests
 
-Apply these rules to all `*.test.js`, `*.test.ts`, `*.test.jsx`, `*.test.tsx` files.
+Apply these rules to all `*.test.js`, `*.test.jsx` files.
 
 ## Test Best Practices
 

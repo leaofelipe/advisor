@@ -1,0 +1,72 @@
+# JavaScript Standards
+
+Apply these rules to all `.js`, `.jsx`, `.mjs`, `.cjs` files.
+
+# Naming Conventions
+
+- Booleans: `isActive`, `hasPermission`, `canEdit`
+- Functions: verbs (`getUserData`, `calculateTotal`, `validateInput`)
+- Classes: nouns (`UserService`, `PaymentProcessor`, `Config`)
+
+---
+
+# Memory Management
+
+Always clean up side effects in React components:
+
+```javascript
+// ✅ GOOD - cleanup in useEffect
+useEffect(() => {
+  const controller = new AbortController()
+  const timerId = setInterval(() => syncData(), 30_000)
+
+  fetchData({ signal: controller.signal })
+
+  return () => {
+    controller.abort()
+    clearInterval(timerId)
+  }
+}, [])
+```
+
+---
+
+# Security
+
+## Code Injection
+
+- Never use `eval()` or `Function()` constructor
+- Validate URLs before redirects or `window.open()`
+
+## XSS (Cross-Site Scripting)
+
+- Avoid `innerHTML` with user input; use `textContent` or DOM APIs
+- Sanitize and encode user-generated content for the correct context (HTML, JavaScript, URL)
+
+```javascript
+// ❌ BAD
+element.innerHTML = userInput
+
+// ✅ GOOD
+element.textContent = userInput
+```
+
+## Authentication & Tokens
+
+- Never store tokens in `localStorage` (use `httpOnly` cookies or memory)
+- No hardcoded credentials or API keys in code
+
+## Data Exposure
+
+- No sensitive data in logs, console, or error messages
+- No sensitive data in URLs or HTML attributes
+
+## Prototype Pollution
+
+- Validate keys when merging objects from untrusted sources (avoid `__proto__`, `constructor`, `prototype`)
+- Use `Object.create(null)` or schema validation (Zod, Joi) for external configs
+
+## PostMessage Security
+
+- Always validate `event.origin` and message structure before processing
+- Use specific `targetOrigin` (never `"*"`) when sending messages
