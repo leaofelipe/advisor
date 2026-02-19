@@ -34,17 +34,4 @@ React 19 SPA built with Vite 6. Entry point is `src/main.tsx` → `src/App.tsx`.
 
 **Path alias:** `@` resolves to `./src` — use `@/components/...`, `@/lib/...`, etc. in all imports.
 
-**Styling:** Tailwind CSS v4 (loaded via `@tailwindcss/vite` plugin, not PostCSS). Use the `cn()` helper from `@/lib/utils` to merge class names:
-
-```ts
-import { cn } from '@/lib/utils'
-cn('base-class', condition && 'conditional-class', className)
-```
-
-**UI components:** shadcn/ui is configured. Add new components with:
-
-```bash
-bunx shadcn add <component>
-```
-
 **Pre-commit hooks:** Husky runs lint-staged on commit, which applies Prettier to all staged `*.{ts,tsx,js,jsx,json,css,md}` files automatically.
