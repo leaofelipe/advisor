@@ -4,4 +4,5 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 @.claude/project.md
 @.claude/javascript-standards.md
+@.claude/style-standards.md
 @.claude/unit-tests.md
