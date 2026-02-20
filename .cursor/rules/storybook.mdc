@@ -1,0 +1,46 @@
+---
+description: Storybook story authoring conventions, CSF3 format, argTypes
+globs: "*.stories.{js,jsx}"
+alwaysApply: false
+---
+
+## Conventions
+
+- Stories colocated with their component in the same folder
+- CSF3 format: named exports for stories, default export with `meta`
+- Use `argTypes` to document props via Controls addon
+- No hardcoded colors or spacing in story markup; use CSS tokens via `var(--token)` in component styles
+- Story names in English, PascalCase
+- One story per meaningful visual state (Default, Disabled, Loading, etc.)
+
+## Structure
+
+```
+src/components/Button/
+  Button.jsx
+  Button.module.css
+  Button.stories.jsx
+```
+
+## Example
+
+```jsx
+import Button from './Button'
+
+export default {
+  title: 'Components/Button',
+  component: Button,
+  argTypes: {
+    variant: { control: 'select', options: ['primary', 'secondary'] },
+    disabled: { control: 'boolean' }
+  }
+}
+
+export const Default = {
+  args: { children: 'Click me', variant: 'primary' }
+}
+
+export const Disabled = {
+  args: { children: 'Disabled', disabled: true }
+}
+```
