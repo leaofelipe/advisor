@@ -5,29 +5,24 @@
   min-width: 210px;
   height: 100vh;
   background-color: var(--color-panel-solid);
-  border-right: 1px solid var(--gray-4);
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  padding: var(--space-3);
-  flex-shrink: 0;
-}
-
-.brandInner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+.brandBar {
   padding: var(--space-3);
   background-color: var(--blue-12);
-  border-radius: var(--radius-3);
+  border-right: 1px solid var(--blue-12);
+  border-bottom-color: var(--blue-12);
 }
 
 .scroll {
   flex: 1;
   min-height: 0;
+  border-right: 1px solid var(--gray-4);
+}
+
+.brandInner {
+  display: flex;
+  align-items: center;
 }
 
 .nav {

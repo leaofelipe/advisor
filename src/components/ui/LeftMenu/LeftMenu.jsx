@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router'
 import { ScrollArea } from '@radix-ui/themes'
 import Brand from '@/components/ui/Brand/Brand'
+import TopBar from '@/components/ui/TopBar/TopBar'
 import styles from './LeftMenu.module.css'
 
 const NAV_ITEMS = [
@@ -26,11 +27,11 @@ const NAV_ITEMS = [
 export default function LeftMenu() {
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.brand}>
+      <TopBar className={styles.brandBar}>
         <div className={styles.brandInner}>
           <Brand variant="full" color="white" width="120px" />
         </div>
-      </div>
+      </TopBar>
 
       <ScrollArea type="auto" scrollbars="vertical" className={styles.scroll}>
         <nav className={styles.nav}>
