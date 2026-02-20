@@ -1,0 +1,11 @@
+---
+description: Core project context - always applied
+alwaysApply: true
+---
+
+# Project Context
+
+- **Package manager**: Bun only. Use `bun` and `bunx`, never npm/yarn.
+- **Path alias**: `@` resolves to `./src` — use `@/components/...`, `@/lib/...` in imports.
+- **Stack**: React 19 + Vite 6, Radix Themes, CSS Modules, design tokens in `src/styles/tokens.css`.
+- **Commits**: English, Conventional Commits with scope. Use `bun run commit`.

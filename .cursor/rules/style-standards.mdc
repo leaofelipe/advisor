@@ -1,3 +1,9 @@
+---
+description: CSS, Radix Themes, and styling conventions
+globs: ["**/*.css", "**/*.module.css", "**/*.jsx", "**/*.tsx"]
+alwaysApply: false
+---
+
 # Style Standards
 
 Apply these rules to all CSS and styling in the project.

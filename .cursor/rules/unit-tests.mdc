@@ -1,3 +1,9 @@
+---
+description: Unit test best practices
+globs: ["**/*.test.js", "**/*.test.jsx", "**/*.spec.js", "**/*.spec.jsx"]
+alwaysApply: false
+---
+
 # Unit Tests
 
 Apply these rules to all `*.test.js`, `*.test.jsx` files.
