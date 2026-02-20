@@ -31,6 +31,70 @@
   --gray-11: #616469;
   --gray-12: #1e2023;
 
+  /* Secondary scale (black-blue) */
+  --secondary-1: #f4f4f6;
+  --secondary-2: #e9e9ed;
+  --secondary-3: #d3d3da;
+  --secondary-4: #bdbdc8;
+  --secondary-5: #a7a7b5;
+  --secondary-6: #8e8e9e;
+  --secondary-7: #727285;
+  --secondary-8: #55556a;
+  --secondary-9: #111218;
+  --secondary-10: #0d0e13;
+  --secondary-11: #4a4a5c;
+  --secondary-12: #08080d;
+
+  /* Tertiary scale (white-blue) */
+  --tertiary-1: #fafafe;
+  --tertiary-2: #f4f4fb;
+  --tertiary-3: #e4e5f2;
+  --tertiary-4: #d4d5e9;
+  --tertiary-5: #c4c5e0;
+  --tertiary-6: #9a9bb8;
+
+  /* Error scale (red) */
+  --error-1: #fff5f6;
+  --error-2: #ffe8ea;
+  --error-3: #ffc9cd;
+  --error-4: #ffa5ab;
+  --error-5: #ff7a83;
+  --error-6: #f04a55;
+  --error-7: #d92f3a;
+  --error-8: #bf1825;
+  --error-9: #9b0017;
+  --error-10: #7e0012;
+  --error-11: #c0202a;
+  --error-12: #3d0007;
+
+  /* Warning scale (amber) */
+  --warning-1: #fffbf0;
+  --warning-2: #fff4d1;
+  --warning-3: #ffdea3;
+  --warning-4: #ffc96b;
+  --warning-5: #f5ae35;
+  --warning-6: #d9931a;
+  --warning-7: #c07d14;
+  --warning-8: #a36800;
+  --warning-9: #b87d14;
+  --warning-10: #9a6710;
+  --warning-11: #d4900f;
+  --warning-12: #3d2500;
+
+  /* Success scale (green) */
+  --success-1: #f2fbf4;
+  --success-2: #e0f5e5;
+  --success-3: #b8e8c4;
+  --success-4: #8dd9a0;
+  --success-5: #5fc87a;
+  --success-6: #38b356;
+  --success-7: #239940;
+  --success-8: #1a7a2e;
+  --success-9: #1a7a2e;
+  --success-10: #145f24;
+  --success-11: #2ea648;
+  --success-12: #072e10;
+
   /* ----------------------------------------------------------
        SEMANTIC TOKENS — aliases for raw scales
     ---------------------------------------------------------- */
@@ -51,11 +115,49 @@
   --color-primary-hover: var(--blue-10);
   --color-primary-text: var(--blue-11);
   --color-primary-subtle: var(--blue-2);
+  --color-on-primary: #ffffff;
+
+  /* Secondary */
+  --color-secondary: var(--secondary-9);
+  --color-secondary-hover: var(--secondary-10);
+  --color-secondary-container: var(--secondary-3);
+  --color-on-secondary: #ffffff;
+
+  /* Tertiary */
+  --color-tertiary: var(--tertiary-3);
+  --color-tertiary-container: var(--tertiary-2);
+  --color-on-tertiary: var(--gray-12);
+
+  /* Error */
+  --color-error: var(--error-9);
+  --color-error-hover: var(--error-10);
+  --color-error-container: var(--error-3);
+  --color-on-error: #ffffff;
+
+  /* Warning */
+  --color-warning: var(--warning-9);
+  --color-warning-hover: var(--warning-10);
+  --color-warning-container: var(--warning-3);
+  --color-on-warning: #ffffff;
+
+  /* Success */
+  --color-success: var(--success-9);
+  --color-success-hover: var(--success-10);
+  --color-success-container: var(--success-3);
+  --color-on-success: #ffffff;
 
   /* Borders */
   --color-border: var(--gray-6);
   --color-border-interactive: var(--gray-7);
   --color-focus-ring: var(--blue-8);
+
+  /* Surfaces expanded */
+  --color-surface-container-low: var(--gray-1);
+  --color-surface-container: var(--gray-3);
+  --color-surface-container-high: var(--gray-4);
+
+  /* Scrim */
+  --color-scrim: rgba(0, 0, 0, 0.5);
 
   /* ----------------------------------------------------------
        SPACING
@@ -71,9 +173,39 @@
        TYPOGRAPHY
     ---------------------------------------------------------- */
 
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
+  /* Font families */
+  --font-family-display: 'JetBrains Mono', monospace;
+  --font-family-body: 'DM Sans', sans-serif;
+
+  /* Font sizes — display, headlines, titles (JetBrains Mono) */
+  --font-size-display-lg: 3.5rem;
+  --font-size-display-md: 2.75rem;
+  --font-size-display-sm: 2.25rem;
+  --font-size-headline-lg: 2rem;
+  --font-size-headline-md: 1.75rem;
+  --font-size-headline-sm: 1.5rem;
+  --font-size-title-lg: 1.375rem;
+  --font-size-title-md: 1rem;
+  --font-size-title-sm: 0.875rem;
+
+  /* Font sizes — body, labels (DM Sans) */
+  --font-size-body-lg: 1rem;
+  --font-size-body-md: 0.875rem;
+  --font-size-body-sm: 0.75rem;
+  --font-size-label-lg: 0.875rem;
+  --font-size-label-md: 0.75rem;
+  --font-size-label-sm: 0.6875rem;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
 
   /* ----------------------------------------------------------
        BORDER RADIUS

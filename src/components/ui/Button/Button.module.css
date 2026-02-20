@@ -64,16 +64,16 @@
 /* ---- Sizes ---- */
 
 .small {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-label-md);
   padding: var(--spacing-xs) var(--spacing-sm);
 }
 
 .medium {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-label-lg);
   padding: var(--spacing-sm) var(--spacing-md);
 }
 
 .large {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-body-lg);
   padding: var(--spacing-sm) var(--spacing-lg);
 }
