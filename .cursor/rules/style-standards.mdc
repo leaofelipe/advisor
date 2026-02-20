@@ -1,5 +1,5 @@
 ---
-description: CSS and styling standards, Radix Themes/Primitives usage, design tokens
+description: CSS and styling standards, Base UI usage, design tokens
 globs: "*.{css,jsx}"
 alwaysApply: false
 ---
@@ -8,32 +8,26 @@ alwaysApply: false
 
 - Plain CSS with CSS Modules (`.module.css`) for component-scoped styles
 - CSS custom properties (tokens) in `src/styles/tokens.css` for design system values
-- Radix Themes (`@radix-ui/themes`) for styled components (Button, Dialog, etc.)
-- Radix UI Primitives (`radix-ui`) for headless components when Themes does not provide one
+- Base UI (`@base-ui/react`) for headless accessible components (Dialog, Menu, Popover, etc.)
 - No Sass, Less, or other preprocessors
 - No inline styles unless required for dynamic values (e.g. layout animations)
 
-## Radix Themes
+## Base UI
 
-- Wrap the app with `<Theme>` in `src/main.jsx` -- configure via props: `accentColor`, `radius`, `appearance`, etc.
-- Import styles: `@import '@radix-ui/themes/styles.css'` in `src/styles/index.css` (before project tokens so overrides apply)
-- Use Themes components directly: `import { Button, Dialog } from '@radix-ui/themes'`
-- Customize via Theme props, CSS variables (tokens like `--accent-9`, `--radius-2`), or `className`/`style`
-- Custom wrappers in `src/components/ui/` only when a Themes component does not exist or needs significant extension
-
-## Radix Primitives
-
-- Use `radix-ui` when Themes has no equivalent: `import { Slot } from "radix-ui"`
-- Wrap primitives in `src/components/ui/` -- each in its own folder with `.jsx` and `.module.css`
-- Style `[data-state]` attributes inside CSS Modules; use `:global()` for portal/overlay elements
+- Single package: `import { Menu } from '@base-ui/react/menu'` (or Dialog, Popover, Select, etc.)
+- Headless -- no provider or theme wrapper required
+- Style via CSS Modules + project tokens + `[data-*]` attribute selectors (e.g. `[data-popup-open]`, `[data-highlighted]`, `[data-checked]`)
+- Compound component pattern: `Component.Root`, `Component.Trigger`, `Component.Popup`, etc.
+- Wrap Base UI components in `src/components/ui/` with CSS Modules for consistent styling
+- Each wrapper in its own folder with `.jsx` and `.module.css`; use `:global()` for portal/overlay elements
 
 ## Structure
 
 ```
 src/
-├── components/ui/     # Custom wrappers (only when Themes lacks a component)
+├── components/ui/     # Base UI wrappers styled with CSS Modules
 ├── styles/
-│   ├── index.css     # Entry -- normalize, themes, tokens, global
+│   ├── index.css     # Entry -- normalize, tokens, global
 │   ├── tokens.css    # Project tokens (colors, spacing, typography, radii, animation)
 │   └── global.css    # Global element styles
 ```
