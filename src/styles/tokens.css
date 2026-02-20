@@ -1,9 +1,65 @@
+/* ============================================================
+   ADVISOR — Design Tokens
+   ============================================================ */
+
 :root {
-  --color-primary: #3b82f6;
-  --color-primary-dark: color-mix(in srgb, var(--color-primary) 80%, black);
-  --color-text: #1a1a1a;
-  --color-text-muted: #6b7280;
+  /* Accent scale (blue) */
+  --blue-1: #fcfdfe;
+  --blue-2: #f6f9ff;
+  --blue-3: #ebf2ff;
+  --blue-4: #dbeaff;
+  --blue-5: #cadfff;
+  --blue-6: #b6d2ff;
+  --blue-7: #9cbeff;
+  --blue-8: #79a4ff;
+  --blue-9: #173ded;
+  --blue-10: #0f26db;
+  --blue-11: #2451e7;
+  --blue-12: #142a6a;
+
+  /* Gray scale */
+  --gray-1: #fcfcfd;
+  --gray-2: #f8f9fa;
+  --gray-3: #eff0f2;
+  --gray-4: #e6e8eb;
+  --gray-5: #dfe1e5;
+  --gray-6: #d7d9de;
+  --gray-7: #cbced4;
+  --gray-8: #b8bbc1;
+  --gray-9: #8b8d93;
+  --gray-10: #808388;
+  --gray-11: #616469;
+  --gray-12: #1e2023;
+
+  /* ----------------------------------------------------------
+       SEMANTIC TOKENS — aliases for raw scales
+    ---------------------------------------------------------- */
+
+  /* Background & surfaces */
   --color-background: #ffffff;
+  --color-surface: var(--gray-2);
+  --color-surface-raised: var(--gray-3);
+
+  /* Text */
+  --color-text: var(--gray-12);
+  --color-text-muted: var(--gray-11);
+  --color-text-placeholder: var(--gray-9);
+  --color-text-disabled: var(--gray-8);
+
+  /* Primary */
+  --color-primary: var(--blue-9);
+  --color-primary-hover: var(--blue-10);
+  --color-primary-text: var(--blue-11);
+  --color-primary-subtle: var(--blue-2);
+
+  /* Borders */
+  --color-border: var(--gray-6);
+  --color-border-interactive: var(--gray-7);
+  --color-focus-ring: var(--blue-8);
+
+  /* ----------------------------------------------------------
+       SPACING
+    ---------------------------------------------------------- */
 
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
@@ -11,13 +67,25 @@
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
 
+  /* ----------------------------------------------------------
+       TYPOGRAPHY
+    ---------------------------------------------------------- */
+
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.25rem;
 
+  /* ----------------------------------------------------------
+       BORDER RADIUS
+    ---------------------------------------------------------- */
+
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
+
+  /* ----------------------------------------------------------
+       MOTION
+    ---------------------------------------------------------- */
 
   --duration-fast: 150ms;
   --duration-normal: 250ms;
