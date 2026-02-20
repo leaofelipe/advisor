@@ -76,6 +76,26 @@ To customize tokens, target `.radix-themes` in `tokens.css` after the Radix impo
 }
 ```
 
+## Layout
+
+Use Radix Themes layout primitives instead of writing flex or grid in CSS:
+
+- `<Flex>` for flex containers — props: `direction`, `align`, `justify`, `gap`, `wrap`, `grow`, `shrink`
+- `<Grid>` for grid containers — props: `columns`, `rows`, `gap`
+- `<Box>` for generic block containers with spacing or sizing props
+
+Do NOT use `display: flex` or `display: grid` in CSS Modules for structural layout. CSS Modules are for visual-only properties that have no Radix prop equivalent: borders, background colors, fixed dimensions, transitions, and animations.
+
+All layout props accept responsive objects: `gap={{ initial: '2', md: '4' }}`.
+
+When the rendered element matters semantically, use `asChild` to compose with the correct HTML element:
+
+```jsx
+<Flex asChild align="center">
+  <header>...</header>
+</Flex>
+```
+
 ## Typography
 
 Project tokens in `tokens.css`, wired into Radix via `.radix-themes` overrides:
