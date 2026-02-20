@@ -1,6 +1,6 @@
 ---
 name: create-component
-description: Creates new UI components for the advisor project following established conventions. Checks Base UI docs for an existing headless primitive, wraps it with CSS Modules, and adds a Storybook story. Use when the user asks to create, build, or add a new component, UI element, or widget.
+description: Creates new UI components for the advisor project following established conventions. Builds plain JSX components wrapped with CSS Modules and adds a Storybook story. Use when the user asks to create, build, or add a new component, UI element, or widget.
 ---
 
 # Create Component
@@ -26,19 +26,7 @@ Follow these steps in order:
 
 Look inside `src/components/ui/` for a component that already covers the same purpose. If one exists, extend or adapt it instead of creating a duplicate.
 
-### 2. Check Base UI docs
-
-Use the `plugin-context7-plugin-context7` MCP server to look up the Base UI documentation.
-
-```
-resolve-library-id: query "base-ui"
-get-library-docs: use the resolved id, topic = "<component name>"
-```
-
-- If Base UI has the component (e.g. Dialog, Menu, Select, Checkbox, Popover, Tooltip, etc.), use it as the headless foundation.
-- If Base UI does not have it, build the component from scratch in plain JSX.
-
-### 3. Determine file locations
+### 2. Determine file locations
 
 | File      | Path                                                            |
 | --------- | --------------------------------------------------------------- |
@@ -46,38 +34,22 @@ get-library-docs: use the resolved id, topic = "<component name>"
 | Styles    | `src/components/ui/<ComponentName>/<ComponentName>.module.css`  |
 | Story     | `src/components/ui/<ComponentName>/<ComponentName>.stories.jsx` |
 
-### 4. Implement the component
-
-**When using Base UI:**
-
-- Import from `@base-ui/react/<component-name>` (e.g. `import { Menu } from '@base-ui/react/menu'`)
-- Use the compound component pattern: `Component.Root`, `Component.Trigger`, `Component.Popup`, etc.
-- Apply styles via CSS Modules; use `[data-*]` attribute selectors for states (`[data-popup-open]`, `[data-highlighted]`, `[data-checked]`, `[data-disabled]`, etc.)
-- Use `:global()` for portal/overlay elements that render outside the component tree
-
-**When building from scratch:**
+### 3. Implement the component
 
 - Use semantic HTML elements
 - Handle focus, keyboard navigation, and ARIA attributes explicitly
-
-**CSS rules (always):**
-
-- Use CSS Modules (`.module.css`)
-- Reference tokens via `var(--token-name)` — never hardcode colors, spacing, or type values
+- Use CSS Modules (`.module.css`) for all styles
+- Reference tokens via `var(--token-name)` — never hardcode font-family values
 - Use native CSS nesting where supported
 - No inline styles unless strictly required for dynamic values
 
-**Token reference** (`src/styles/tokens.css`):
+**Available tokens** (`src/styles/tokens.css`):
 
-- Colors: `--color-primary`, `--color-text`, `--color-text-muted`, `--color-border`, `--color-surface`, etc.
-- Spacing: `--spacing-xs`, `--spacing-sm`, `--spacing-md`, `--spacing-lg`, `--spacing-xl`
-- Typography: `--font-size-sm`, `--font-size-base`, `--font-size-lg`
-- Radius: `--radius-sm`, `--radius-md`, `--radius-lg`
-- Motion: `--duration-fast`, `--duration-normal`, `--ease-out`
+- Font families: `--font-family-display`, `--font-family-body`
 
-### 5. Write the Storybook story
+### 4. Write the Storybook story
 
-Read Storybook project's Rule and follow the story conventions defined there.
+Read the Storybook project rule and follow the story conventions defined there.
 
 Place the story at `src/components/ui/<ComponentName>/<ComponentName>.stories.jsx`.
 
@@ -94,9 +66,7 @@ src/components/ui/
 ## Checklist
 
 - [ ] Checked `src/components/ui/` for an existing component to extend
-- [ ] Checked Base UI docs for an existing primitive
 - [ ] Component file created at correct path
-- [ ] CSS Module uses only design tokens
-- [ ] Portal/overlay elements use `:global()` where needed
+- [ ] CSS Module uses only design tokens (no hardcoded font families)
+- [ ] Uses semantic HTML with appropriate ARIA attributes
 - [ ] Story has a Default export and at least one named story
-- [ ] No hardcoded colors, spacing, or type values
