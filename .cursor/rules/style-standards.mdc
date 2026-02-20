@@ -1,6 +1,8 @@
-# Style Standards
-
-Apply these rules to all CSS and styling in the project.
+---
+description: CSS and styling standards, Radix Themes/Primitives usage, design tokens
+globs: "*.{css,jsx}"
+alwaysApply: false
+---
 
 ## Stack
 
@@ -13,7 +15,7 @@ Apply these rules to all CSS and styling in the project.
 
 ## Radix Themes
 
-- Wrap the app with `<Theme>` in `src/main.jsx` — configure via props: `accentColor`, `radius`, `appearance`, etc.
+- Wrap the app with `<Theme>` in `src/main.jsx` -- configure via props: `accentColor`, `radius`, `appearance`, etc.
 - Import styles: `@import '@radix-ui/themes/styles.css'` in `src/styles/index.css` (before project tokens so overrides apply)
 - Use Themes components directly: `import { Button, Dialog } from '@radix-ui/themes'`
 - Customize via Theme props, CSS variables (tokens like `--accent-9`, `--radius-2`), or `className`/`style`
@@ -22,7 +24,7 @@ Apply these rules to all CSS and styling in the project.
 ## Radix Primitives
 
 - Use `radix-ui` when Themes has no equivalent: `import { Slot } from "radix-ui"`
-- Wrap primitives in `src/components/ui/` — each in its own folder with `.jsx` and `.module.css`
+- Wrap primitives in `src/components/ui/` -- each in its own folder with `.jsx` and `.module.css`
 - Style `[data-state]` attributes inside CSS Modules; use `:global()` for portal/overlay elements
 
 ## Structure
@@ -31,7 +33,7 @@ Apply these rules to all CSS and styling in the project.
 src/
 ├── components/ui/     # Custom wrappers (only when Themes lacks a component)
 ├── styles/
-│   ├── index.css     # Entry — normalize, themes, tokens, global
+│   ├── index.css     # Entry -- normalize, themes, tokens, global
 │   ├── tokens.css    # Project tokens (colors, spacing, typography, radii, animation)
 │   └── global.css    # Global element styles
 ```
@@ -39,7 +41,7 @@ src/
 ## Conventions
 
 - Use CSS Modules (`ComponentName.module.css`) for component-specific styles
-- Reference tokens via `var(--token-name)` — never hardcode colors, spacing, or typography values
+- Reference tokens via `var(--token-name)` -- never hardcode colors, spacing, or typography values
 - Use native CSS nesting where supported (modern browsers)
 - For third-party overrides, use `:global()` inside the module
 
