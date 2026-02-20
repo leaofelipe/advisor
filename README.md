@@ -7,6 +7,16 @@
 
 Finance management, planning, and insights.
 
+## Project Structure
+
+```
+src/
+├── assets/        # Static assets (images, SVGs)
+├── components/    # Reusable UI components
+├── pages/         # Route-level page components
+└── styles/        # Global CSS and design tokens
+```
+
 ## Development
 
 ```bash

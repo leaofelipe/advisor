@@ -11,6 +11,7 @@ const preview = {
         accentColor="indigo"
         grayColor="slate"
         radius="medium"
+        scaling="100%"
       >
         <Story />
       </Theme>
