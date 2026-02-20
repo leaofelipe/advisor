@@ -2,7 +2,7 @@ import { NavLink } from 'react-router'
 import { ScrollArea } from '@radix-ui/themes'
 import Brand from '@/components/ui/Brand/Brand'
 import TopBar from '@/components/ui/TopBar/TopBar'
-import styles from './LeftMenu.module.css'
+import styles from './SideMenu.module.css'
 
 const NAV_ITEMS = [
   {
@@ -24,7 +24,7 @@ const NAV_ITEMS = [
   }
 ]
 
-export default function LeftMenu() {
+export default function SideMenu() {
   return (
     <aside className={styles.sidebar}>
       <TopBar className={styles.brandBar}>

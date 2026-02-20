@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router'
-import LeftMenu from '@/components/ui/LeftMenu/LeftMenu'
+import SideMenu from '@/components/ui/SideMenu/SideMenu'
 import TopBar from '@/components/ui/TopBar/TopBar'
 import Resume from '@/pages/Resume'
 import Budgets from '@/pages/Budgets'
@@ -9,7 +9,7 @@ import styles from './App.module.css'
 function App() {
   return (
     <div className={styles.layout}>
-      <LeftMenu />
+      <SideMenu />
       <div className={styles.main}>
         <TopBar className={styles.topbar} />
         <Routes>

@@ -1,9 +1,15 @@
 import { MemoryRouter } from 'react-router'
-import LeftMenu from './LeftMenu'
+import SideMenu from './SideMenu'
 
 export default {
-  title: 'Components/LeftMenu',
-  component: LeftMenu,
+  title: 'Components/SideMenu',
+  component: SideMenu,
+  parameters: {
+    layout: 'fullscreen'
+  }
+}
+
+export const Default = {
   decorators: [
     Story => (
       <MemoryRouter initialEntries={['/resume']}>
@@ -12,13 +18,8 @@ export default {
         </div>
       </MemoryRouter>
     )
-  ],
-  parameters: {
-    layout: 'fullscreen'
-  }
+  ]
 }
-
-export const Default = {}
 
 export const AllocationActive = {
   decorators: [
