@@ -54,7 +54,7 @@ If no Radix primitive covers the use case, fall back to semantic HTML with expli
 - Use native CSS nesting where supported
 - No inline styles unless strictly required for dynamic values
 
-**Available tokens** (`src/styles/tokens.css`):
+**Available tokens** — Before assuming a variable is missing, check `node_modules/@radix-ui/themes/styles.css`. Radix defines color scales (`--gray-*`, `--blue-*`, `--accent-*`), surface tokens (`--color-background`, `--color-panel-solid`, etc.), spacing (`--space-*`), and radius (`--radius-1` through `--radius-6`) out of the box. Project-specific in `tokens.css`:
 
 - Font families: `--default-font-family` (body/UI text), `--heading-font-family` (display/titles), `--code-font-family` (monospace/code)
 - These are Radix theme tokens wired to the project fonts — never use `--font-family-display` or `--font-family-body` directly in component styles

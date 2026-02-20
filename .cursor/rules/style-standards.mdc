@@ -33,7 +33,7 @@ To customize the theme, adjust these props or override CSS variables in the `.ra
 ```
 src/styles/
 ├── index.css      # Import order: normalize → Radix → tokens → global
-├── tokens.css     # Project tokens and .radix-themes overrides
+├── tokens.css     # Project font families and .radix-themes overrides only (not colors, spacing, radius)
 └── global.css     # Global element resets and base styles
 ```
 
@@ -58,7 +58,9 @@ Radix styles must be imported before project tokens and global styles so that `.
 
 ## Radix Themes Tokens
 
-All tokens are available globally once the `<Theme>` provider is mounted. Use them in CSS Modules and `tokens.css` overrides. Never hardcode colors, spacing, or typography values.
+All tokens are available globally once the `<Theme>` provider is mounted. These variables are defined by `@radix-ui/themes/styles.css` on the `.radix-themes` selector and are available to all descendants automatically — they do not need to be re-declared in `tokens.css`. Use them in CSS Modules and `tokens.css` overrides. Never hardcode colors, spacing, or typography values.
+
+**Scope of `tokens.css`** — Only for: (a) project font family definitions on `:root`, and (b) `.radix-themes` overrides when you need to change a Radix default. It does not need to define colors, spacing, radius, or surface tokens — those come from Radix.
 
 **Colors** -- `--accent-1` through `--accent-12` and `--gray-1` through `--gray-12` follow a semantic scale: steps 1-2 are backgrounds, 3-5 interactive, 6-8 borders, 9-10 solid fills, 11-12 accessible text. Use `--accent-9` for the primary solid accent, `--accent-contrast` for text on top of it. Named scales (e.g. `--indigo-*`) and alpha variants (e.g. `--indigo-a9`) are also available.
 
