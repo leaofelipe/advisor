@@ -1,0 +1,10 @@
+.brand {
+  display: block;
+  line-height: 0;
+}
+
+.brand svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
