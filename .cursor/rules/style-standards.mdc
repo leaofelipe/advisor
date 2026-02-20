@@ -1,26 +1,52 @@
 ---
 description: CSS and styling standards, design tokens
-globs: "*.{css,jsx}"
+globs: '*.{css,jsx}'
 alwaysApply: false
 ---
 
 ## Stack
 
+- Radix Themes (`@radix-ui/themes`) for pre-built UI components, layout primitives, and the design token system
 - Plain CSS with CSS Modules (`.module.css`) for component-scoped styles
-- CSS custom properties (tokens) in `src/styles/tokens.css` for design system values
-- No Sass, Less, or other preprocessors
+- CSS custom properties (tokens) in `src/styles/tokens.css` for project-level overrides on top of Radix tokens
+- No Sass, Less, Tailwind, or other preprocessors
 - No inline styles unless required for dynamic values (e.g. layout animations)
+
+## Theme Configuration
+
+The `<Theme>` provider in `src/main.jsx` sets the global theme baseline:
+
+```jsx
+<Theme
+  appearance="light"
+  accentColor="indigo"
+  grayColor="slate"
+  radius="medium"
+  scaling="100%"
+>
+```
+
+To customize the theme, adjust these props or override CSS variables in the `.radix-themes` selector inside `tokens.css`.
 
 ## Structure
 
 ```
-src/
-├── components/ui/     # UI components styled with CSS Modules
-├── styles/
-│   ├── index.css     # Entry -- normalize, tokens, global
-│   ├── tokens.css    # Project tokens
-│   └── global.css    # Global element styles
+src/styles/
+├── index.css      # Import order: normalize → Radix → tokens → global
+├── tokens.css     # Project tokens and .radix-themes overrides
+└── global.css     # Global element resets and base styles
 ```
+
+### CSS import order in `index.css`
+
+```css
+@import 'modern-normalize';
+@import '@radix-ui/themes/styles.css';
+@import './tokens.css';
+@import './global.css';
+```
+
+Radix styles must be imported before project tokens and global styles so that `.radix-themes` overrides in `tokens.css` take precedence.
 
 ## Conventions
 
@@ -28,12 +54,31 @@ src/
 - Reference tokens via `var(--token-name)` -- never hardcode colors, spacing, or typography values
 - Use native CSS nesting where supported (modern browsers)
 - For third-party overrides, use `:global()` inside the module
+- Override Radix tokens by targeting the `.radix-themes` selector in `tokens.css`
+
+## Radix Themes Tokens
+
+All tokens are available globally once the `<Theme>` provider is mounted. Use them in CSS Modules and `tokens.css` overrides. Never hardcode colors, spacing, or typography values.
+
+**Colors** -- `--accent-1` through `--accent-12` and `--gray-1` through `--gray-12` follow a semantic scale: steps 1-2 are backgrounds, 3-5 interactive, 6-8 borders, 9-10 solid fills, 11-12 accessible text. Use `--accent-9` for the primary solid accent, `--accent-contrast` for text on top of it. Named scales (e.g. `--indigo-*`) and alpha variants (e.g. `--indigo-a9`) are also available.
+
+**Surfaces** -- `--color-background` (page), `--color-panel-solid` / `--color-panel-translucent` (cards, popovers), `--color-surface` (inputs), `--color-overlay` (dialogs).
+
+**Spacing** -- `--space-1` through `--space-9` (4px → 64px).
+
+To customize tokens, target `.radix-themes` in `tokens.css` after the Radix import:
+
+```css
+.radix-themes {
+  --indigo-9: #your-brand-color;
+}
+```
 
 ## Typography
 
-Two font families are available via tokens:
+Project tokens in `tokens.css`, wired into Radix via `.radix-themes` overrides:
 
-- `--font-family-display` (`JetBrains Mono`) — use for display, headlines, and titles (H1–H6, hero numbers, card titles)
-- `--font-family-body` (`DM Sans`) — use for body text, labels, buttons, inputs, captions, and navigation
+- `--font-family-display` (`JetBrains Mono`) -- display, headlines, titles (H1-H6, hero numbers, card titles)
+- `--font-family-body` (`DM Sans`) -- body text, labels, buttons, inputs, captions, navigation
 
-Never hardcode `font-family` values in component CSS. Always reference the tokens.
+Never hardcode `font-family` values. Always reference these tokens.

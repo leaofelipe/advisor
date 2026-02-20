@@ -1,8 +1,10 @@
+import { Button } from '@radix-ui/themes'
+
 function App() {
   return (
     <div className="app">
       <h1>Advisor</h1>
-      <button type="button">Enter</button>
+      <Button>Enter</Button>
     </div>
   )
 }

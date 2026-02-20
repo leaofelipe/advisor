@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: var(--font-family-body);
   line-height: 1.5;
-  color: var(--color-text);
+  color: var(--gray-12);
   background-color: var(--color-background);
 }
 
@@ -16,5 +16,5 @@ img {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--accent-9);
 }

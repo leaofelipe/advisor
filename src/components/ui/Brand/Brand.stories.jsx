@@ -34,8 +34,8 @@ export const White = {
     Story => (
       <div
         style={{
-          padding: 'var(--spacing-md)',
-          background: 'var(--secondary-9)'
+          padding: 'var(--space-4)',
+          background: 'var(--indigo-9)'
         }}
       >
         <Story />
@@ -54,8 +54,8 @@ export const WhiteSmall = {
     Story => (
       <div
         style={{
-          padding: 'var(--spacing-md)',
-          background: 'var(--secondary-9)'
+          padding: 'var(--space-4)',
+          background: 'var(--indigo-9)'
         }}
       >
         <Story />
