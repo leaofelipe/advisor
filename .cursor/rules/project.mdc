@@ -38,3 +38,27 @@ React 19 SPA built with Vite 6. Entry point is `src/main.jsx` -> `src/App.jsx`. 
 **Path alias:** `@` resolves to `./src` -- use `@/components/...`, `@/lib/...`, etc. in all imports.
 
 **Pre-commit hooks:** Husky runs lint-staged on commit, which applies Prettier to all staged `*.{js,jsx,json,css,md}` files automatically.
+
+**Project structure:**
+
+```
+src/
+├── main.jsx
+├── App.jsx
+├── App.module.css
+├── assets/
+│   └── images/          # SVG logos and static images
+├── components/
+│   └── ui/              # Reusable UI components
+│       └── <Component>/ # Each: .jsx, .module.css, .stories.jsx
+├── pages/               # Route-level page components
+│   └── Page.module.css  # Shared page styles
+└── styles/              # Global CSS and design tokens
+    ├── index.css
+    ├── global.css
+    └── tokens.css
+```
+
+**Component convention:** Each UI component lives in its own folder under `components/ui/` with co-located `.jsx`, `.module.css`, and `.stories.jsx` files.
+
+**Styles:** `styles/tokens.css` holds design tokens; `styles/global.css` and `styles/index.css` for global styles.
