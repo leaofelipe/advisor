@@ -1,4 +1,7 @@
-# Project
+---
+description: Project setup, commands, architecture, and commit conventions
+alwaysApply: true
+---
 
 ## Package Manager
 
@@ -30,8 +33,8 @@ Use `bun run commit` to get an interactive prompt. The `commit-msg` hook will re
 
 ## Architecture
 
-React 19 SPA built with Vite 6. Entry point is `src/main.jsx` → `src/App.jsx`. Finance management and planning application (v0.1.0, early stage).
+React 19 SPA built with Vite 6. Entry point is `src/main.jsx` -> `src/App.jsx`. Finance management and planning application (v0.1.0, early stage).
 
-**Path alias:** `@` resolves to `./src` — use `@/components/...`, `@/lib/...`, etc. in all imports.
+**Path alias:** `@` resolves to `./src` -- use `@/components/...`, `@/lib/...`, etc. in all imports.
 
 **Pre-commit hooks:** Husky runs lint-staged on commit, which applies Prettier to all staged `*.{js,jsx,json,css,md}` files automatically.

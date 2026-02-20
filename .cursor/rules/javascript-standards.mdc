@@ -1,6 +1,8 @@
-# JavaScript Standards
-
-Apply these rules to all `.js`, `.jsx`, `.mjs`, `.cjs` files.
+---
+description: JavaScript and JSX coding standards, naming conventions, security, and memory management
+globs: "*.{js,jsx,mjs,cjs}"
+alwaysApply: false
+---
 
 # Naming Conventions
 
@@ -8,14 +10,11 @@ Apply these rules to all `.js`, `.jsx`, `.mjs`, `.cjs` files.
 - Functions: verbs (`getUserData`, `calculateTotal`, `validateInput`)
 - Classes: nouns (`UserService`, `PaymentProcessor`, `Config`)
 
----
-
 # Memory Management
 
 Always clean up side effects in React components:
 
 ```javascript
-// ✅ GOOD - cleanup in useEffect
 useEffect(() => {
   const controller = new AbortController()
   const timerId = setInterval(() => syncData(), 30_000)
@@ -28,8 +27,6 @@ useEffect(() => {
   }
 }, [])
 ```
-
----
 
 # Security
 
@@ -44,10 +41,10 @@ useEffect(() => {
 - Sanitize and encode user-generated content for the correct context (HTML, JavaScript, URL)
 
 ```javascript
-// ❌ BAD
+// Bad
 element.innerHTML = userInput
 
-// ✅ GOOD
+// Good
 element.textContent = userInput
 ```
 

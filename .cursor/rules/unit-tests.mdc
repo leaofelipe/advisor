@@ -1,6 +1,8 @@
-# Unit Tests
-
-Apply these rules to all `*.test.js`, `*.test.jsx` files.
+---
+description: Unit testing best practices and conventions
+globs: "*.test.{js,jsx}"
+alwaysApply: false
+---
 
 ## Test Best Practices
 
