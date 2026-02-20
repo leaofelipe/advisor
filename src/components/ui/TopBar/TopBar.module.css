@@ -1,6 +1,4 @@
 .topbar {
-  display: flex;
-  align-items: center;
   height: var(--topbar-height);
   flex-shrink: 0;
   border-bottom: 1px solid var(--gray-4);

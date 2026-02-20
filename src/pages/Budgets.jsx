@@ -1,11 +1,12 @@
-import { Heading } from '@radix-ui/themes'
-import styles from './Page.module.css'
+import { Box, Heading } from '@radix-ui/themes'
 
 function Budgets() {
   return (
-    <main className={styles.page}>
-      <Heading as="h1">Budgets</Heading>
-    </main>
+    <Box asChild flexGrow="1" p="2">
+      <main>
+        <Heading as="h1">Budgets</Heading>
+      </main>
+    </Box>
   )
 }
 

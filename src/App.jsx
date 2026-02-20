@@ -1,3 +1,4 @@
+import { Flex } from '@radix-ui/themes'
 import { Routes, Route, Navigate } from 'react-router'
 import SideMenu from '@/components/ui/SideMenu/SideMenu'
 import TopBar from '@/components/ui/TopBar/TopBar'
@@ -8,9 +9,9 @@ import styles from './App.module.css'
 
 function App() {
   return (
-    <div className={styles.layout}>
+    <Flex minHeight="100vh">
       <SideMenu />
-      <div className={styles.main}>
+      <Flex direction="column" flexGrow="1" minWidth="0">
         <TopBar className={styles.topbar} />
         <Routes>
           <Route path="/" element={<Navigate to="/resume" replace />} />
@@ -18,8 +19,8 @@ function App() {
           <Route path="/budgets" element={<Budgets />} />
           <Route path="/allocation" element={<Allocation />} />
         </Routes>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   )
 }
 

@@ -1,9 +1,14 @@
+import { Flex } from '@radix-ui/themes'
 import styles from './TopBar.module.css'
 
 export default function TopBar({ children, className }) {
   return (
-    <header className={`${styles.topbar}${className ? ` ${className}` : ''}`}>
-      {children}
-    </header>
+    <Flex
+      asChild
+      align="center"
+      className={`${styles.topbar}${className ? ` ${className}` : ''}`}
+    >
+      <header>{children}</header>
+    </Flex>
   )
 }
