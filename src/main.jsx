@@ -6,13 +6,7 @@ import './styles/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Theme
-      appearance="light"
-      accentColor="indigo"
-      grayColor="slate"
-      radius="medium"
-      scaling="100%"
-    >
+    <Theme appearance="dark" radius="medium" scaling="100%">
       <App />
     </Theme>
   </React.StrictMode>
