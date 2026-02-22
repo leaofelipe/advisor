@@ -15,7 +15,12 @@ const ResumeItem = React.forwardRef(function ResumeItem(
         .filter(Boolean)
         .join(' ')}
       onClick={onClick}
-      onKeyDown={e => e.key === 'Enter' && onClick?.()}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onClick?.()
+        }
+      }}
       {...props}
     >
       <Text as="p" size="2" weight="bold" className={styles.title}>
