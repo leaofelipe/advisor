@@ -1,0 +1,38 @@
+.root {
+  font-family: var(--heading-font-family);
+
+  & :global(.rt-TabNavLink) {
+    color: var(--accent-contrast);
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  & :global(.rt-BaseTabListTriggerInner) {
+    font-family: var(--heading-font-family);
+    text-decoration: none;
+    text-underline-offset: var(--space-3);
+    text-decoration-thickness: 1px;
+  }
+
+  & :global(.rt-TabNavLink[data-active] .rt-BaseTabListTriggerInner) {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-contrast);
+  }
+
+  @media (hover: hover) {
+    & :global(.rt-TabNavLink:hover) {
+      color: var(--accent-9);
+
+      & :global(.rt-BaseTabListTriggerInner) {
+        background-color: var(--accent-contrast);
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,3 +1,7 @@
 @import 'modern-normalize';
 @import '@radix-ui/themes/styles.css';
 @import './tokens.css';
+
+.rt-BaseTabList {
+  box-shadow: none;
+}
