@@ -12,13 +12,23 @@ function Select({
   className,
   disabled
 }) {
+  const isControlled = value !== undefined
+  const rootProps = {
+    disabled
+  }
+
+  if (isControlled) {
+    rootProps.value = value
+    rootProps.onValueChange = onValueChange
+  } else {
+    rootProps.defaultValue = defaultValue
+    if (onValueChange) {
+      rootProps.onValueChange = onValueChange
+    }
+  }
+
   return (
-    <SelectPrimitive.Root
-      value={value}
-      defaultValue={defaultValue}
-      onValueChange={onValueChange}
-      disabled={disabled}
-    >
+    <SelectPrimitive.Root {...rootProps}>
       <SelectPrimitive.Trigger
         placeholder={placeholder}
         className={[

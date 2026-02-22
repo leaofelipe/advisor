@@ -1,25 +1,25 @@
+import { useMemo } from 'react'
 import Select from '@/components/ui/Select/Select'
 import styles from './DateNavigation.module.css'
 
 const MONTHS = [
-  { text: 'Janeiro', value: '01' },
-  { text: 'Fevereiro', value: '02' },
-  { text: 'Março', value: '03' },
-  { text: 'Abril', value: '04' },
-  { text: 'Maio', value: '05' },
-  { text: 'Junho', value: '06' },
-  { text: 'Julho', value: '07' },
-  { text: 'Agosto', value: '08' },
-  { text: 'Setembro', value: '09' },
-  { text: 'Outubro', value: '10' },
-  { text: 'Novembro', value: '11' },
-  { text: 'Dezembro', value: '12' }
+  { text: 'janeiro', value: '01' },
+  { text: 'fevereiro', value: '02' },
+  { text: 'março', value: '03' },
+  { text: 'abril', value: '04' },
+  { text: 'maio', value: '05' },
+  { text: 'junho', value: '06' },
+  { text: 'julho', value: '07' },
+  { text: 'agosto', value: '08' },
+  { text: 'setembro', value: '09' },
+  { text: 'outubro', value: '10' },
+  { text: 'novembro', value: '11' },
+  { text: 'dezembro', value: '12' }
 ]
 
-function getYearOptions() {
-  const current = new Date().getFullYear()
+function getYearOptions(referenceYear) {
   return Array.from({ length: 6 }, (_, i) => {
-    const year = String(current - 2 + i)
+    const year = String(referenceYear - 2 + i)
     return { text: year, value: year }
   })
 }
@@ -36,20 +36,36 @@ function DateNavigation({
   const fallbackMonth = String(now.getMonth() + 1).padStart(2, '0')
   const fallbackYear = String(now.getFullYear())
 
+  const isMonthControlled = month !== undefined
+  const isYearControlled = year !== undefined
+
+  const yearOptions = useMemo(() => {
+    const referenceYear = isYearControlled
+      ? parseInt(year, 10)
+      : parseInt(defaultYear ?? fallbackYear, 10)
+    return getYearOptions(referenceYear)
+  }, [isYearControlled, year, defaultYear, fallbackYear])
+
   return (
     <div className={styles.root}>
       <Select
         options={MONTHS}
-        value={month}
-        defaultValue={defaultMonth ?? fallbackMonth}
-        onValueChange={onMonthChange}
+        {...(isMonthControlled
+          ? { value: month, onValueChange: onMonthChange }
+          : {
+              defaultValue: defaultMonth ?? fallbackMonth,
+              onValueChange: onMonthChange
+            })}
       />
       |
       <Select
-        options={getYearOptions()}
-        value={year}
-        defaultValue={defaultYear ?? fallbackYear}
-        onValueChange={onYearChange}
+        options={yearOptions}
+        {...(isYearControlled
+          ? { value: year, onValueChange: onYearChange }
+          : {
+              defaultValue: defaultYear ?? fallbackYear,
+              onValueChange: onYearChange
+            })}
       />
     </div>
   )
