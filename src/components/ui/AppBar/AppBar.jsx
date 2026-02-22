@@ -1,8 +1,10 @@
 import { Box, Flex } from '@radix-ui/themes'
 import logoSrc from '@/assets/images/logo-white.svg'
+import AppNavigation from '@/components/ui/AppNavigation/AppNavigation'
+import DateNavigation from '@/components/ui/DateNavigation/DateNavigation'
 import styles from './AppBar.module.css'
 
-function AppBar({ children, right, className }) {
+function AppBar({ className }) {
   return (
     <Flex
       asChild
@@ -17,9 +19,13 @@ function AppBar({ children, right, className }) {
           </a>
         </Box>
 
-        <Box className={styles.center}>{children}</Box>
+        <Box className={styles.center}>
+          <AppNavigation />
+        </Box>
 
-        <Box className={styles.right}>{right}</Box>
+        <Box className={styles.right}>
+          <DateNavigation />
+        </Box>
       </nav>
     </Flex>
   )
