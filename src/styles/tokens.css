@@ -165,4 +165,5 @@
 .dark-theme,
 :is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme)) {
   --color-background: #00024f;
+  --color-card: #010028;
 }

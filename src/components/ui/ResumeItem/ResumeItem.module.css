@@ -1,0 +1,42 @@
+.root {
+  display: block;
+  width: 100%;
+  background-color: var(--color-card);
+  border-radius: var(--radius-3);
+  cursor: pointer;
+  font-family: var(--default-font-family);
+  transition: background-color 120ms ease;
+  text-align: left;
+  padding: var(--space-5);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--blue-1);
+    }
+  }
+}
+
+.selected {
+  background-color: var(--blue-indicator);
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: color-mix(in srgb, var(--blue-indicator), black 20%);
+    }
+  }
+}
+
+.title {
+  color: var(--gray-11);
+  display: block;
+  margin-bottom: 2px;
+
+  .selected & {
+    color: #fff;
+  }
+}
+
+.value {
+  color: #fff;
+  display: block;
+}

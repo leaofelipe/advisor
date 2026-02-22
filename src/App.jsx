@@ -8,7 +8,7 @@ function App() {
   return (
     <Flex direction="column" minHeight="100vh">
       <AppBar />
-      <Container size="2">
+      <Container size="4">
         <Routes>
           <Route path="/resume" element={<Resume />} />
           <Route path="/planning" element={<Planning />} />
