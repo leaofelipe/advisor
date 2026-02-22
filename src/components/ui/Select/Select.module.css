@@ -1,8 +1,7 @@
 .trigger {
   font-family: var(--heading-font-family);
   color: var(--accent-contrast);
-  background-color: var(--color-background);
-  cursor: pointer;
+  cursor: pointer !important;
 
   & :global(.rt-SelectTriggerInner) {
     color: var(--accent-contrast);
@@ -14,14 +13,6 @@
 
   &[data-placeholder] {
     color: color-mix(in srgb, var(--accent-contrast) 60%, transparent);
-  }
-
-  &:hover {
-    background-color: color-mix(
-      in srgb,
-      var(--color-background) 80%,
-      white 20%
-    );
   }
 
   &[data-disabled] {
@@ -37,12 +28,27 @@
 }
 
 .borderless {
-  border-color: transparent;
-  box-shadow: none;
+  background-color: transparent !important;
+  box-shadow: none !important;
+
+  &:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--accent-contrast) 10%,
+      transparent
+    ) !important;
+  }
 }
 
 .bordered {
-  border-color: color-mix(in srgb, var(--accent-contrast) 30%, transparent);
+  background-color: var(--color-background);
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--accent-contrast) 30%, transparent);
+
+  &:hover {
+    box-shadow: inset 0 0 0 1px
+      color-mix(in srgb, var(--accent-contrast) 50%, transparent);
+  }
 }
 
 .content {

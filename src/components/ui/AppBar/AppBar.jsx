@@ -1,4 +1,4 @@
-import { Box, Flex } from '@radix-ui/themes'
+import { Container } from '@radix-ui/themes'
 import logoSrc from '@/assets/images/logo-white.svg'
 import AppNavigation from '@/components/ui/AppNavigation/AppNavigation'
 import DateNavigation from '@/components/ui/DateNavigation/DateNavigation'
@@ -6,28 +6,25 @@ import styles from './AppBar.module.css'
 
 function AppBar({ className }) {
   return (
-    <Flex
-      asChild
-      align="center"
-      justify="between"
+    <Container
       className={[styles.root, className].filter(Boolean).join(' ')}
+      size="2"
+      flexGrow="0"
     >
-      <nav>
-        <Box className={styles.left} asChild>
-          <a href="/" aria-label="Advisor home">
-            <img src={logoSrc} alt="Advisor" className={styles.logo} />
-          </a>
-        </Box>
+      <nav className={styles.nav}>
+        <a href="/" aria-label="Advisor home" className={styles.left}>
+          <img src={logoSrc} alt="Advisor" className={styles.logo} />
+        </a>
 
-        <Box className={styles.center}>
+        <div className={styles.center}>
           <AppNavigation />
-        </Box>
+        </div>
 
-        <Box className={styles.right}>
+        <div className={styles.right}>
           <DateNavigation />
-        </Box>
+        </div>
       </nav>
-    </Flex>
+    </Container>
   )
 }
 
