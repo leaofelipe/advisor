@@ -14,6 +14,7 @@
   --code-font-family: var(--font-family-display);
   --accent-9: #00024f;
   --accent-10: #00013a;
+  --accent-11: #010028;
   --accent-contrast: #ffffff;
 }
 
@@ -165,5 +166,4 @@
 .dark-theme,
 :is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme)) {
   --color-background: #00024f;
-  --color-card: #010028;
 }

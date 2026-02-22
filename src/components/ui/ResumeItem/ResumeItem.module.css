@@ -1,7 +1,7 @@
 .root {
   display: block;
   width: 100%;
-  background-color: var(--color-card);
+  background-color: var(--accent-11);
   border-radius: var(--radius-3);
   cursor: pointer;
   font-family: var(--default-font-family);
