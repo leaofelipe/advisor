@@ -1,12 +1,44 @@
 .root {
+  box-shadow: none;
   font-family: var(--default-font-family);
   cursor: pointer;
   transition:
     background-color 120ms ease,
-    box-shadow 120ms ease,
+    border-color 120ms ease,
     opacity 120ms ease;
 
   &:disabled {
     cursor: not-allowed;
+  }
+
+  &:global(.rt-variant-solid)[data-disabled] {
+    background-color: var(--gray-11);
+    color: var(--gray-10);
+  }
+
+  &:global(.rt-variant-solid) {
+    background-color: var(--accent-contrast);
+    color: var(--accent-9);
+  }
+
+  &:global(.rt-variant-solid):is(:hover, :active):not([data-disabled]) {
+    background-color: var(--gray-11);
+  }
+
+  &:global(.rt-variant-outline) {
+    border: 1px solid var(--accent-contrast);
+    color: var(--accent-contrast);
+    background-color: transparent;
+  }
+
+  &:global(.rt-variant-outline):is(:hover, :active):not([data-disabled]) {
+    border-color: var(--gray-11);
+    background-color: var(--gray-a2);
+    color: var(--gray-11);
+  }
+
+  &:global(.rt-variant-outline)[data-disabled] {
+    border-color: var(--gray-11);
+    color: var(--gray-11);
   }
 }

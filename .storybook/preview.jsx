@@ -1,19 +1,25 @@
 import { Theme } from '@radix-ui/themes'
-import '@radix-ui/themes/styles.css'
-import '@/styles/tokens.css'
-import '@/styles/global.css'
+import '@/styles/index.css'
 
 const preview = {
   decorators: [
     Story => (
       <Theme
-        appearance="light"
+        appearance="dark"
         accentColor="indigo"
         grayColor="slate"
         radius="medium"
         scaling="100%"
       >
-        <Story />
+        <div
+          style={{
+            background: 'var(--color-background)',
+            minHeight: '100vh',
+            padding: '1rem'
+          }}
+        >
+          <Story />
+        </div>
       </Theme>
     )
   ]
