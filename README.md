@@ -12,7 +12,7 @@ Finance management, planning, and insights.
 ```
 src/
 ├── assets/        # Static assets (images, SVGs)
-├── components/    # Reusable UI components
+├── components/    # Reusable UI components (components/ui/<Component>/)
 ├── pages/         # Route-level page components
 └── styles/        # Global CSS and design tokens
 ```

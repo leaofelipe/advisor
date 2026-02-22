@@ -45,15 +45,21 @@ React 19 SPA built with Vite 6. Entry point is `src/main.jsx` -> `src/App.jsx`. 
 src/
 ├── main.jsx
 ├── App.jsx
-├── App.module.css
 ├── assets/
 │   └── images/          # SVG logos and static images
 ├── components/
 │   └── ui/              # Reusable UI components
-│       └── <Component>/ # Each: .jsx, .module.css, .stories.jsx
-├── pages/               # Route-level page components
-│   └── Page.module.css  # Shared page styles
-└── styles/              # Global CSS and design tokens
+│       ├── AppBar/       # Each: .jsx, .module.css, .stories.jsx
+│       ├── AppNavigation/
+│       ├── Button/
+│       ├── DateNavigation/
+│       ├── ResumeItem/
+│       ├── ResumeOverview/
+│       └── Select/
+├── pages/                # Route-level page components
+│   ├── Planning.jsx
+│   └── Resume.jsx
+└── styles/               # Global CSS and design tokens
     ├── index.css
     └── tokens.css
 ```

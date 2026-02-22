@@ -28,7 +28,7 @@ Look inside `src/components/ui/` for a component that already covers the same pu
 
 ### 2. Check Radix documentation
 
-Use the documentation-lookup skill to check whether Radix UI has a primitive or Radix Themes has a component that matches the behavior needed.
+Use the Context7 MCP tool to check whether Radix UI has a primitive or Radix Themes has a component that matches the behavior needed. Call `resolve-library-id` with the library name (e.g. `@radix-ui/react-dialog`, `@radix-ui/themes`) and `query-docs` with the specific question about the component or pattern.
 
 - **Radix Primitives** (`@radix-ui/react-*`): headless, unstyled components for complex interactive patterns — use for things like Dialog, DropdownMenu, Select, Tooltip, Tabs, Accordion, etc.
 - **Radix Themes**: pre-styled components — check if a Themes component fits before building from scratch.
