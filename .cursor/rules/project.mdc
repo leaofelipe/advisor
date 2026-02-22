@@ -55,10 +55,9 @@ src/
 │   └── Page.module.css  # Shared page styles
 └── styles/              # Global CSS and design tokens
     ├── index.css
-    ├── global.css
     └── tokens.css
 ```
 
 **Component convention:** Each UI component lives in its own folder under `components/ui/` with co-located `.jsx`, `.module.css`, and `.stories.jsx` files.
 
-**Styles:** `styles/tokens.css` holds design tokens; `styles/global.css` and `styles/index.css` for global styles.
+**Styles:** `styles/tokens.css` holds design tokens; `styles/index.css` imports them and Radix themes.
