@@ -6,7 +6,7 @@ import {
   setDoc,
   updateDoc
 } from 'firebase/firestore'
-import DATA from '@/api/DATA.mock'
+import DATA from './DATA.mock'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -25,15 +25,15 @@ class FirebaseService {
   #db
   #useMock
 
-  constructor(useMock = false) {
+  constructor() {
     this.#app = initializeApp(firebaseConfig)
     this.#db = getFirestore(this.#app)
-    this.#useMock = useMock
+    this.#useMock = import.meta.env.VITE_USE_MOCK === 'true'
   }
 
-  static getInstance(useMock = false) {
+  static getInstance() {
     if (!FirebaseService.#instance) {
-      FirebaseService.#instance = new FirebaseService(useMock)
+      FirebaseService.#instance = new FirebaseService()
     }
     return FirebaseService.#instance
   }
