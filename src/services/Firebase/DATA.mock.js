@@ -22,6 +22,10 @@ const DATA = {
         investimentos: {
           plan: 10,
           spent: 10
+        },
+        margem: {
+          plan: 10,
+          spent: 10
         }
       }
     },
@@ -45,6 +49,10 @@ const DATA = {
           spent: 10
         },
         investimentos: {
+          plan: 10,
+          spent: 10
+        },
+        margem: {
           plan: 10,
           spent: 10
         }
@@ -72,6 +80,10 @@ const DATA = {
         investimentos: {
           plan: 10,
           spent: 10
+        },
+        margem: {
+          plan: 10,
+          spent: 10
         }
       }
     },
@@ -95,6 +107,10 @@ const DATA = {
           spent: 10
         },
         investimentos: {
+          plan: 10,
+          spent: 10
+        },
+        margem: {
           plan: 10,
           spent: 10
         }
@@ -122,6 +138,10 @@ const DATA = {
         investimentos: {
           plan: 10,
           spent: 10
+        },
+        margem: {
+          plan: 10,
+          spent: 10
         }
       }
     },
@@ -145,6 +165,10 @@ const DATA = {
           spent: 10
         },
         investimentos: {
+          plan: 10,
+          spent: 10
+        },
+        margem: {
           plan: 10,
           spent: 10
         }
@@ -172,6 +196,10 @@ const DATA = {
         investimentos: {
           plan: 10,
           spent: 10
+        },
+        margem: {
+          plan: 10,
+          spent: 10
         }
       }
     },
@@ -195,6 +223,10 @@ const DATA = {
           spent: 10
         },
         investimentos: {
+          plan: 10,
+          spent: 10
+        },
+        margem: {
           plan: 10,
           spent: 10
         }
@@ -222,6 +254,10 @@ const DATA = {
         investimentos: {
           plan: 10,
           spent: 10
+        },
+        margem: {
+          plan: 10,
+          spent: 10
         }
       }
     },
@@ -245,6 +281,10 @@ const DATA = {
           spent: 10
         },
         investimentos: {
+          plan: 10,
+          spent: 10
+        },
+        margem: {
           plan: 10,
           spent: 10
         }
@@ -272,6 +312,10 @@ const DATA = {
         investimentos: {
           plan: 10,
           spent: 10
+        },
+        margem: {
+          plan: 10,
+          spent: 10
         }
       }
     },
@@ -295,6 +339,10 @@ const DATA = {
           spent: 10
         },
         investimentos: {
+          plan: 10,
+          spent: 10
+        },
+        margem: {
           plan: 10,
           spent: 10
         }
