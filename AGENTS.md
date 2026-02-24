@@ -326,7 +326,7 @@ export const Disabled = {
 
 Skills are step-by-step workflows for recurring tasks. Full skill files live in `.agents/skills/`.
 
-### Create Component (`.agents/skills/create-component.md`)
+### Create Component (`.agents/skills/create-component/SKILL.md`)
 
 Use when asked to create, build, or add a component, UI element, or widget.
 
