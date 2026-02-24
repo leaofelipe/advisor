@@ -14,6 +14,9 @@ src/
 ├── assets/        # Static assets (images, SVGs)
 ├── components/    # Reusable UI components (components/ui/<Component>/)
 ├── pages/         # Route-level page components
+├── services/
+│   ├── Database/  # Public data access layer — use this in components
+│   └── Firebase/  # Internal Firestore layer — do not import in UI
 └── styles/        # Global CSS and design tokens
 ```
 
