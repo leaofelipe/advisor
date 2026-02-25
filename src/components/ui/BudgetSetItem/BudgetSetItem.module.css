@@ -1,0 +1,25 @@
+.root {
+  font-family: var(--default-font-family);
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  border-radius: var(--radius-2);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 150ms ease;
+
+  &:hover {
+    background-color: var(--gray-11);
+  }
+}
+
+.label {
+  color: var(--accent-11);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.value {
+  color: var(--accent-11);
+  display: block;
+}
