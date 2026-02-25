@@ -1,0 +1,11 @@
+.root {
+  padding: var(--space-4) 0;
+}
+
+.label {
+  color: var(--accent-11);
+}
+
+.value {
+  color: var(--accent-9);
+}
