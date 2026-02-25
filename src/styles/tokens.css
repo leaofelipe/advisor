@@ -16,6 +16,8 @@
   --accent-10: #00013a;
   --accent-11: #010028;
   --accent-contrast: #ffffff;
+  --gray-background: #dbdfe2;
+  --gray-separator: #c7cad0;
 }
 
 /* ------------------------------------------------------------
@@ -124,6 +126,8 @@
   --gray-surface: rgba(0, 0, 0, 0.05);
   --gray-indicator: #696e72;
   --gray-track: #696e72;
+  --gray-background: #dbdfe2;
+  --gray-separator: #c7cad0;
 }
 
 @supports (color: color(display-p3 1 1 1)) {
