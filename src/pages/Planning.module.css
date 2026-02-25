@@ -1,0 +1,13 @@
+.overview {
+  background-color: var(--gray-background);
+  border-radius: var(--radius-3);
+  padding: var(--space-5);
+}
+
+.heading {
+  color: var(--accent-9);
+}
+
+.separator {
+  background-color: var(--gray-separator) !important;
+}
